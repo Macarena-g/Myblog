@@ -1,0 +1,112 @@
+---
+interface Skill {
+  name: string;
+  level: number;
+  color?: string;
+}
+
+const skills: Skill[] = [
+  { name: "Python", level: 70, color: "#E34F26" },
+  { name: "SQL", level: 85, color: "#1572B6" },
+  { name: "PostgreSQL", level: 80, color: "#F7DF1E" },
+  { name: "Numpy", level: 75, color: "#61DAFB" },
+  { name: "Pandas", level: 70, color: "#FF5D01" }
+];
+---
+
+<section class="skills-section">
+  <h2>My Skills</h2>
+  <div class="skills-grid">
+    {skills.map((skill) => (
+      <div class="skill-card">
+        <div class="skill-header">
+          <span class="skill-name">{skill.name}</span>
+          <span class="skill-level">{skill.level}%</span>
+        </div>
+        <div class="progress-bar">
+          <div 
+            class="progress-fill"
+            style={`width: ${skill.level}%; background-color: ${skill.color || 'var(--primary-color)'}`}
+          ></div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .skills-section {
+    padding: 2rem 0;
+  }
+
+  .skills-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .skill-card {
+    background: var(--background-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+
+  .skill-card:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-name {
+    font-weight: 500;
+    color: var(--text-color);
+  }
+
+  .skill-level {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+  }
+
+  .progress-bar {
+    height: 8px;
+    background: var(--background-color);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+  }
+
+  @media (min-width: 768px) {
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+<script>
+  // Animate progress bars when they come into view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.width = entry.target.style.width;
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.progress-fill').forEach(bar => {
+    observer.observe(bar);
+  });
+</script> 

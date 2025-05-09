@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Greeting from '../components/Greeting';
+import InteractiveCard from '../components/InteractiveCard.astro';
+import SkillsSection from '../components/SkillsSection.astro';
 const pageTitle = "Macarena Guzman";
 ---
 
@@ -8,14 +10,34 @@ const pageTitle = "Macarena Guzman";
   <main class="container">
     <section class="hero">
       <h1 class="title">{pageTitle}</h1>
-      <p class="subtitle">Welcome to my personal space on the web</p>
+      <p class="subtitle">Welcome to my portfolio</p>
       <Greeting client:load messages={["Hi", "Hola", "Oi"]} />
     </section>
     
-    <section class="content">
-      <h2>About Me</h2>
-      <p>I'm a passionate developer sharing my journey and experiences through this blog.</p>
-    </section>
+    <div class="cards-grid">
+      <InteractiveCard
+        title="About Me"
+        description="Learn more about my journey, experience, and what drives me as a Data Analyst."
+        icon="👋"
+        link="/about"
+      />
+      
+      <InteractiveCard
+        title="My Blog"
+        description="Read about my experiences, notes, and projects on Data Science."
+        icon="📝"
+        link="/blog"
+      />
+      
+      <InteractiveCard
+        title="Projects"
+        description="Explore the projects I've worked on and my contributions to the tech community."
+        icon="🚀"
+        link="/projects"
+      />
+    </div>
+
+    <SkillsSection />
   </main>
 </BaseLayout>
 
@@ -33,30 +55,36 @@ const pageTitle = "Macarena Guzman";
   }
 
   .title {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .subtitle {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     color: var(--text-color);
     opacity: 0.8;
     margin-bottom: 2rem;
   }
 
-  .content {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  .cards-grid {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .content {
-      background: #1e293b;
+  @media (min-width: 768px) {
+    .cards-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .cards-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

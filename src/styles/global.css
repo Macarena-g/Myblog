@@ -5,17 +5,26 @@
   --background-color: #f8fafc;
   --text-color: #1e293b;
   --max-width: 65ch;
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 :root.dark {
   --background-color: #0f172a;
   --text-color: #f1f5f9;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 
 html {
   background-color: var(--background-color);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--text-color);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -24,6 +33,7 @@ body {
   max-width: var(--max-width);
   padding: 2rem 1rem;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
 * {
@@ -36,30 +46,67 @@ h1, h2, h3, h4, h5, h6 {
   margin: 1.5rem 0 1rem;
   line-height: 1.2;
   color: var(--text-color);
+  font-weight: 700;
 }
 
 h1 {
   font-size: 2.5rem;
-  font-weight: 700;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 h2 {
   font-size: 2rem;
   font-weight: 600;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
 }
 
 p {
   margin-bottom: 1.5rem;
+  font-size: 1.1rem;
 }
 
 a {
   color: var(--primary-color);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: var(--transition);
+  position: relative;
 }
 
 a:hover {
   color: var(--secondary-color);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--secondary-color);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 /* Navigation styles */
@@ -67,10 +114,12 @@ a:hover {
   width: 100%;
   top: 5rem;
   left: 48px;
-  background-color: white;
+  background-color: var(--background-color);
   display: none;
   margin: 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--border-radius);
+  overflow: hidden;
 }
 
 .nav-links a {
@@ -81,18 +130,23 @@ a:hover {
   font-size: 1rem;
   font-weight: 500;
   color: var(--text-color);
-  transition: background-color 0.2s ease;
+  transition: var(--transition);
 }
 
 .nav-links a:hover,
 .nav-links a:focus {
-  background-color: var(--background-color);
-  color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: white;
 }
 
 .hamburger {
   padding: 1rem;
   cursor: pointer;
+  transition: var(--transition);
+}
+
+.hamburger:hover {
+  transform: scale(1.1);
 }
 
 .hamburger .line {
@@ -101,11 +155,75 @@ a:hover {
   height: 4px;
   margin-bottom: 8px;
   background-color: var(--primary-color);
-  transition: all 0.2s ease;
+  transition: var(--transition);
+  border-radius: 2px;
 }
 
 .expanded {
   display: unset;
+}
+
+/* Card styles */
+.card {
+  background: var(--background-color);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin: 1rem 0;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Button styles */
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.button:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.button::after {
+  display: none;
+}
+
+/* List styles */
+ul, ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Code block styles */
+pre {
+  background: var(--background-color);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  overflow-x: auto;
+  margin: 1rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
 }
 
 @media screen and (min-width: 636px) {
@@ -121,6 +239,11 @@ a:hover {
   .nav-links a {
     display: inline-block;
     padding: 1rem 1.5rem;
+  }
+
+  .nav-links a:hover {
+    background: none;
+    color: var(--primary-color);
   }
 
   .hamburger {

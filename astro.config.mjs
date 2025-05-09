@@ -5,5 +5,7 @@ import preact from '@astrojs/preact';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [preact()]
+  integrations: [preact()],
+  site: 'https://Macarena-g.github.io',
+  base: 'Myblog',
 });

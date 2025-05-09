@@ -7,6 +7,11 @@
   --max-width: 65ch;
 }
 
+:root.dark {
+  --background-color: #0f172a;
+  --text-color: #f1f5f9;
+}
+
 html {
   background-color: var(--background-color);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -124,22 +129,15 @@ a:hover {
 }
 
 /* Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #0f172a;
-    --text-color: #f1f5f9;
-  }
+.dark .nav-links {
+  background-color: #1e293b;
+}
 
-  .nav-links {
-    background-color: #1e293b;
-  }
+.dark .nav-links a {
+  color: #f1f5f9;
+}
 
-  .nav-links a {
-    color: #f1f5f9;
-  }
-
-  .nav-links a:hover {
-    background-color: #334155;
-  }
+.dark .nav-links a:hover {
+  background-color: #334155;
 }
   

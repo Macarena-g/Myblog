@@ -17,6 +17,9 @@ const navItems = [
     </a>
     
     <nav class="nav">
+      <button class="mobile-menu-button" aria-label="Toggle menu">
+        <span class="hamburger"></span>
+      </button>
       <ul class="nav-list">
         {navItems.map(item => (
           <li class="nav-item">
@@ -66,6 +69,11 @@ const navItems = [
     letter-spacing: -0.5px;
   }
 
+  .nav {
+    display: flex;
+    align-items: center;
+  }
+
   .nav-list {
     display: flex;
     gap: 2rem;
@@ -103,22 +111,70 @@ const navItems = [
     width: 100%;
   }
 
+  .mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  .hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text-color);
+    position: relative;
+    transition: var(--transition);
+  }
+
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: var(--text-color);
+    transition: var(--transition);
+  }
+
+  .hamburger::before {
+    top: -8px;
+  }
+
+  .hamburger::after {
+    bottom: -8px;
+  }
+
   @media (max-width: 768px) {
-    .nav-list {
-      display: none;
+    .mobile-menu-button {
+      display: block;
     }
 
-    .nav-list.active {
-      display: flex;
-      flex-direction: column;
+    .nav-list {
+      display: none;
       position: absolute;
       top: 100%;
       left: 0;
       right: 0;
       background: var(--background-color);
       padding: 1rem;
-      border-bottom: 1px solid var(--border-color);
+      flex-direction: column;
       gap: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-list.active {
+      display: flex;
     }
   }
 </style>
+
+<script>
+  const mobileMenuButton = document.querySelector('.mobile-menu-button');
+  const navList = document.querySelector('.nav-list');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    navList?.classList.toggle('active');
+  });
+</script>

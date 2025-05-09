@@ -17,15 +17,20 @@ const { pageTitle } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <title>Welcome to my portfolio</title>
+    <title>{pageTitle} | Macarena Guzman</title>
+    <meta name="description" content="Personal portfolio and blog of Macarena Guzman - Data Analyst and Developer" />
   </head>
   <body>
-    <Header />
-    <div class="theme-toggle-container">
-      <ThemeToggle client:load />
+    <div class="layout">
+      <Header />
+      <div class="theme-toggle-container">
+        <ThemeToggle client:load />
+      </div>
+      <main class="main-content">
+        <slot />
+      </main>
+      <Footer />
     </div>
-    <slot />
-    <Footer />
     <script>
       import "../scripts/menu.js";
     </script>
@@ -33,10 +38,30 @@ const { pageTitle } = Astro.props;
 </html>
 
 <style>
+  .layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-content {
+    flex: 1;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
   .theme-toggle-container {
     position: fixed;
     top: 1rem;
     right: 1rem;
     z-index: 100;
+  }
+
+  @media (max-width: 768px) {
+    .main-content {
+      padding: 1rem;
+    }
   }
 </style>

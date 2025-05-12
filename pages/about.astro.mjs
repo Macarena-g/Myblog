@@ -1,11 +1,11 @@
-import { c as createAstro, a as createComponent, r as renderComponent, b as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_se7OELUy.mjs';
+import { c as createComponent, a as createAstro, r as renderComponent, b as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_3hC_CpjB.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../chunks/BaseLayout_D86u8Nqk.mjs';
+import { $ as $$BaseLayout } from '../chunks/BaseLayout_DEu_Ck5y.mjs';
 /* empty css                                  */
 /* empty css                                 */
 export { renderers } from '../renderers.mjs';
 
-const $$Astro = createAstro("https://Macarena-g.github.io");
+const $$Astro = createAstro();
 const $$About = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$About;

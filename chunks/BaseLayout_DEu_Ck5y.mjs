@@ -1,4 +1,4 @@
-import { a as createComponent, m as maybeRenderHead, f as renderScript, d as addAttribute, b as renderTemplate, c as createAstro, g as renderHead, r as renderComponent, e as renderSlot } from './astro/server_se7OELUy.mjs';
+import { c as createComponent, m as maybeRenderHead, f as renderScript, d as addAttribute, b as renderTemplate, a as createAstro, g as renderHead, r as renderComponent, e as renderSlot } from './astro/server_3hC_CpjB.mjs';
 import 'kleur/colors';
 import 'clsx';
 /* empty css                          */
@@ -23,7 +23,7 @@ const $$ThemeToggle = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<button id="theme-toggle" aria-label="Toggle theme" class="theme-toggle" data-astro-cid-x3pjskd3> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon sun" data-astro-cid-x3pjskd3> <circle cx="12" cy="12" r="5" data-astro-cid-x3pjskd3></circle> <line x1="12" y1="1" x2="12" y2="3" data-astro-cid-x3pjskd3></line> <line x1="12" y1="21" x2="12" y2="23" data-astro-cid-x3pjskd3></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" data-astro-cid-x3pjskd3></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" data-astro-cid-x3pjskd3></line> <line x1="1" y1="12" x2="3" y2="12" data-astro-cid-x3pjskd3></line> <line x1="21" y1="12" x2="23" y2="12" data-astro-cid-x3pjskd3></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" data-astro-cid-x3pjskd3></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" data-astro-cid-x3pjskd3></line> </svg> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon moon" data-astro-cid-x3pjskd3> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" data-astro-cid-x3pjskd3></path> </svg> </button>  ${renderScript($$result, "C:/Users/MACARENA/flaky-cloud/src/components/ThemeToggle.astro?astro&type=script&index=0&lang.ts")}`;
 }, "C:/Users/MACARENA/flaky-cloud/src/components/ThemeToggle.astro", void 0);
 
-const $$Astro = createAstro("https://Macarena-g.github.io");
+const $$Astro = createAstro();
 const $$BaseLayout = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$BaseLayout;

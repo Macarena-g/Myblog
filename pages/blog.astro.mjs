@@ -1,12 +1,12 @@
-import { _ as _page$1 } from '../chunks/post-1_DNu84bEs.mjs';
-import { _ as _page$2 } from '../chunks/post-2_daMEWgDN.mjs';
-import { _ as _page$3 } from '../chunks/post-3_CsXrwvAi.mjs';
-import { c as createAstro, a as createComponent, r as renderComponent, b as renderTemplate, m as maybeRenderHead, d as addAttribute } from '../chunks/astro/server_se7OELUy.mjs';
+import { _ as _page$1 } from '../chunks/post-1_BLbne-eK.mjs';
+import { _ as _page$2 } from '../chunks/post-2_B2mVAo3d.mjs';
+import { _ as _page$3 } from '../chunks/post-3_B2mc6FEM.mjs';
+import { c as createComponent, a as createAstro, r as renderComponent, b as renderTemplate, m as maybeRenderHead, d as addAttribute } from '../chunks/astro/server_3hC_CpjB.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../chunks/BaseLayout_D86u8Nqk.mjs';
+import { $ as $$BaseLayout } from '../chunks/BaseLayout_DEu_Ck5y.mjs';
 export { renderers } from '../renderers.mjs';
 
-const $$Astro = createAstro("https://Macarena-g.github.io");
+const $$Astro = createAstro();
 const $$Blog = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Blog;

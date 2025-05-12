@@ -183,7 +183,7 @@ function createAstro(site) {
   return {
     // TODO: this is no longer necessary for `Astro.site`
     // but it somehow allows working around caching issues in content collections for some tests
-    site: new URL(site) ,
+    site: void 0,
     generator: `Astro v${ASTRO_VERSION}`,
     glob: createAstroGlobFn()
   };
@@ -1706,4 +1706,4 @@ async function renderScript(result, id) {
 "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_".split("").reduce((v, c) => (v[c.charCodeAt(0)] = c, v), []);
 "-0123456789_".split("").reduce((v, c) => (v[c.charCodeAt(0)] = c, v), []);
 
-export { NOOP_MIDDLEWARE_HEADER as N, createComponent as a, renderTemplate as b, createAstro as c, addAttribute as d, renderSlot as e, renderScript as f, renderHead as g, decodeKey as h, maybeRenderHead as m, renderComponent as r, unescapeHTML as u };
+export { NOOP_MIDDLEWARE_HEADER as N, createAstro as a, renderTemplate as b, createComponent as c, addAttribute as d, renderSlot as e, renderScript as f, renderHead as g, decodeKey as h, maybeRenderHead as m, renderComponent as r, unescapeHTML as u };

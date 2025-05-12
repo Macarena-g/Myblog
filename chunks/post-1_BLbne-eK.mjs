@@ -1,8 +1,8 @@
-import { c as createAstro, a as createComponent, r as renderComponent, m as maybeRenderHead, d as addAttribute, e as renderSlot, b as renderTemplate, u as unescapeHTML } from './astro/server_se7OELUy.mjs';
+import { c as createComponent, a as createAstro, r as renderComponent, m as maybeRenderHead, d as addAttribute, e as renderSlot, b as renderTemplate, u as unescapeHTML } from './astro/server_3hC_CpjB.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from './BaseLayout_D86u8Nqk.mjs';
+import { $ as $$BaseLayout } from './BaseLayout_DEu_Ck5y.mjs';
 
-const $$Astro = createAstro("https://Macarena-g.github.io");
+const $$Astro = createAstro();
 const $$MarkdownPostLayout = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$MarkdownPostLayout;

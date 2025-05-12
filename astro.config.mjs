@@ -7,5 +7,5 @@ import preact from '@astrojs/preact';
 export default defineConfig({
   integrations: [preact()],
   site: 'https://Macarena-g.github.io',
-  base: 'Myblog',
+  base: '/Myblog/',
 });

@@ -15,6 +15,7 @@
     "preact": "^10.26.6"
   },
   "devDependencies": {
+    "@types/react": "^19.1.4",
     "cross-env": "^7.0.3",
     "gh-pages": "^6.3.0"
   }

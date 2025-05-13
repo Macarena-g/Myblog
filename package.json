@@ -7,13 +7,23 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "preinstall": "npx npm-force-resolutions"
   },
   "dependencies": {
     "@astrojs/preact": "^4.0.11",
+    "@astrojs/vercel": "^8.0.4",
     "astro": "^5.7.11",
     "preact": "^10.26.6"
   },
+  "overrides": {
+    "path-to-regexp": "^6.2.2",
+    "@vercel/routing-utils": "^3.1.0"
+},
+"resolutions": {
+  "path-to-regexp": "^6.2.2",
+  "@vercel/routing-utils": "^3.1.0"
+},
   "devDependencies": {
     "@types/react": "^19.1.4",
     "cross-env": "^7.0.3",

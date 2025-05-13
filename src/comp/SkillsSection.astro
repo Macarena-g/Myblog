@@ -101,12 +101,12 @@ const skills: Skill[] = [
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.width = entry.target.style.width;
+        (entry.target as HTMLElement).style.width = (entry.target as HTMLElement).style.width;
       }
     });
   }, { threshold: 0.5 });
 
   document.querySelectorAll('.progress-fill').forEach(bar => {
-    observer.observe(bar);
+    observer.observe(bar as HTMLElement);
   });
 </script> 
